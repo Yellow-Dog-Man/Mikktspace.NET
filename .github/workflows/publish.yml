@@ -61,4 +61,4 @@ jobs:
       - name: Pack
         run: |
           cd CSharp
-          dotnet pack --output nupkgs --configuration Release -p:Version=${{ env.VERSION }} 
+          dotnet pack --output nupkgs --configuration Release -p:Version=0.1.0
