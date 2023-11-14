@@ -3,7 +3,7 @@ jobs:
   buildLinux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@latest
       - uses: nttld/setup-ndk@v1
         with:
           ndk-version: r25c
@@ -15,25 +15,33 @@ jobs:
           cmake ./
           make
           ls -ao
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@latest
         with:
           path: Native/libmikktspace.so
           name: linux_x64_libmikktspace.so
       - run: |
           cd Native/
           ndk-build
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@latest
         with:
           path: Native/libs/armeabi-v7a/libmikktspace.so
           name: android_ARMv7_libmikktspace.so
   buildWindows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@latest
       - name: Configure, build, and test the project
         run: |
           cd Native/
           cmake ./
+          cmake --config Release --build ./
           dir
-          cmake --build ./
-          dir
+      - name: Setup .NET 7
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Build
+        run: |
+          cs CSharp
+          dotnet restore
+          dotnet build --configuration Release --no-restore
