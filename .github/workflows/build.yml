@@ -9,7 +9,7 @@ jobs:
           ndk-version: r25c
       - name: Configure, build, and test the project
         run: |
-          cd Native\
+          cd Native/
           cmake
           make
       - uses: actions/upload-artifact@v2
