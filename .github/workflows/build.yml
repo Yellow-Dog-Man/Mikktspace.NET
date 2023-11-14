@@ -7,6 +7,8 @@ jobs:
       - uses: nttld/setup-ndk@v1
         with:
           ndk-version: r25c
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       - name: Configure, build, and test the project
         run: |
           cd Native/
@@ -17,8 +19,8 @@ jobs:
           path: Native\libmikktspace.so
           name: linux_x64_libmikktspace.so
       - run: |
-          cd Native
-          ${{ env.ANDROID_NDK_PATH }}/ndk-build 
+          cd Native/
+          ${{ env.ANDROID_NDK_HOME }}/ndk-build
       - uses: actions/upload-artifact@v2
         with:
           path: Native/libs/armeabi-v7a/libmikktspace.so
