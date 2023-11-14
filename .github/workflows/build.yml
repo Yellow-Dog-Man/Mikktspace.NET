@@ -5,6 +5,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r25c
       - uses: lukka/get-cmake@latest
       - uses: lukka/run-cmake@v10
         with:
