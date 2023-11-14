@@ -3,7 +3,7 @@ jobs:
   buildLinux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@v3
       - uses: nttld/setup-ndk@v1
         with:
           ndk-version: r25c
@@ -15,21 +15,21 @@ jobs:
           cmake ./
           make
           ls -ao
-      - uses: actions/upload-artifact@latest
+      - uses: actions/upload-artifact@v3
         with:
           path: Native/libmikktspace.so
           name: linux_x64_libmikktspace.so
       - run: |
           cd Native/
           ndk-build
-      - uses: actions/upload-artifact@latest
+      - uses: actions/upload-artifact@v3
         with:
           path: Native/libs/armeabi-v7a/libmikktspace.so
           name: android_ARMv7_libmikktspace.so
   buildWindows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@v3
       - name: Configure, build, and test the project
         run: |
           cd Native/
