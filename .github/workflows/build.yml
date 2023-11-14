@@ -20,7 +20,7 @@ jobs:
           name: linux_x64_libmikktspace.so
       - run: |
           cd Native/
-          ${{ env.ANDROID_NDK_HOME }}/ndk-build
+          ndk-build
       - uses: actions/upload-artifact@v2
         with:
           path: Native/libs/armeabi-v7a/libmikktspace.so
