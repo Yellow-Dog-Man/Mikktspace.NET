@@ -1,7 +1,9 @@
 on: push
 jobs:
-  releaseLinux:
+  buildLinux:
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ github.event.release.tag_name }}
     steps:
       - uses: actions/checkout@v3
       - uses: nttld/setup-ndk@v1
@@ -28,6 +30,9 @@ jobs:
           path: Native/libs/armeabi-v7a/libmikktspace.so
           name: android_ARMv7_libmikktspace.so
   buildWindows:
+    needs: [buildLinux]
+    env:
+      VERSION: ${{ github.event.release.tag_name }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -46,3 +51,14 @@ jobs:
           cd CSharp
           dotnet restore
           dotnet build --configuration Release --no-restore
+      - name: Download Native Libraries
+        uses: actions/download-artifact@v3
+        with:
+          path: runtimes/
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: runtimes/
+      - name: Pack
+        run: |
+          cd CSharp
+          dotnet pack --output nupkgs --configuration Release -p:Version=${{ env.VERSION }} 

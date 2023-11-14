@@ -7,13 +7,13 @@
     <authors>$authors$</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/Neos-Metaverse/Mikktspace.NET</projectUrl>
+    <projectUrl>https://github.com/Yellow-Dog-Man/Mikktspace.NET</projectUrl>
     <description>$description$</description>
     <copyright>$copyright$</copyright>
   </metadata>
   <files>
-    <file src="runtimes\win-x64\native\**" target="runtimes\win-x64\native\" />
-    <file src="runtimes\linux-x64\native\**" target="runtimes\linux-x64\native\" />
-    <file src="runtimes\android-arm\native\**" target="runtimes\android-arm\native\" />
+    <file src="..\Native\Release\mikktspace.dll" target="runtimes\win-x64\native\mikktspace.dll" />
+    <file src="..\runtimes\linux_x64_libmikktspace.so" target="runtimes\linux-x64\native\libmikktspace.so" />
+    <file src="..\runtimes\android_ARMv7_libmikktspace.so" target="runtimes\android-arm\native\libmikktspace.so" />
   </files>
 </package>
