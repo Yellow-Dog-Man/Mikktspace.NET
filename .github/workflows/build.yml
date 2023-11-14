@@ -7,10 +7,11 @@ jobs:
       - uses: nttld/setup-ndk@v1
         with:
           ndk-version: r25c
-      - uses: lukka/get-cmake@latest
-      - uses: lukka/run-cmake@v10
+      - name: Configure, build, and test the project
+        uses: threeal/cmake-action@v1.3.0
         with:
-          cmakeListsTxtPath: '${{ github.workspace }}/Native/CMakeLists.txt'
+          run-build: true
+          source-dir: Native\
       - uses: actions/upload-artifact@v2
         with:
           path: Native\libmikktspace.so
