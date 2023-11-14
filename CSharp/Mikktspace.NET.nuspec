@@ -13,7 +13,7 @@
   </metadata>
   <files>
     <file src="..\Native\Release\mikktspace.dll" target="runtimes\win-x64\native\mikktspace.dll" />
-    <file src="..\runtimes\linux_x64_libmikktspace.so" target="runtimes\linux-x64\native\libmikktspace.so" />
-    <file src="..\runtimes\android_ARMv7_libmikktspace.so" target="runtimes\android-arm\native\libmikktspace.so" />
+    <file src="..\runtimes\linux_x64_libmikktspace.so\libmikktspace.so" target="runtimes\linux-x64\native\libmikktspace.so" />
+    <file src="..\runtimes\android_ARMv7_libmikktspace.so\libmikktspace.so" target="runtimes\android-arm\native\libmikktspace.so" />
   </files>
 </package>
