@@ -8,10 +8,10 @@ jobs:
         with:
           ndk-version: r25c
       - name: Configure, build, and test the project
-        uses: threeal/cmake-action@v1.3.0
-        with:
-          run-build: true
-          source-dir: Native\
+        run: |
+          cd Native\
+          cmake
+          make
       - uses: actions/upload-artifact@v2
         with:
           path: Native\libmikktspace.so
