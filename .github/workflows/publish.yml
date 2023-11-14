@@ -1,6 +1,6 @@
 on: push
 jobs:
-  buildLinux:
+  publishLinux:
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ github.event.release.tag_name }}
@@ -29,7 +29,7 @@ jobs:
         with:
           path: Native/libs/armeabi-v7a/libmikktspace.so
           name: android_ARMv7_libmikktspace.so
-  buildWindows:
+  publishWindows:
     needs: [buildLinux]
     env:
       VERSION: ${{ github.event.release.tag_name }}
@@ -62,3 +62,7 @@ jobs:
         run: |
           cd CSharp
           dotnet pack --output nupkgs --configuration Release -p:Version=0.1.0
+      - uses: actions/upload-artifact@v3
+        with:
+          path: CSharp/nupkgs/YellowDogman.Mikktspace.NET.0.1.0.nupkg
+          name: YellowDogman.Mikktspace.NET.0.1.0.nupkg
