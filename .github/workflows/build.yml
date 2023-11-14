@@ -34,5 +34,6 @@ jobs:
         run: |
           cd Native/
           cmake ./
-          make
+          dir
+          make ./
           dir
