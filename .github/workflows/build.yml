@@ -35,5 +35,5 @@ jobs:
           cd Native/
           cmake ./
           dir
-          make ./
+          cmake --build ./
           dir
