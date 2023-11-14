@@ -33,6 +33,6 @@ jobs:
       - name: Configure, build, and test the project
         run: |
           cd Native/
-          cmake ./ -G "Visual Studio 16 2019"
+          cmake ./
           make
           dir
