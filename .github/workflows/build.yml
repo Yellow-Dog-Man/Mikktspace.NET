@@ -19,6 +19,7 @@ jobs:
         with:
           path: Native/libmikktspace.so
           name: linux_x64_libmikktspace.so
+          retention-days: 1
       - name: Build Native Arm/Android
         run: |
           cd Native/
@@ -27,6 +28,7 @@ jobs:
         with:
           path: Native/libs/armeabi-v7a/libmikktspace.so
           name: android_ARMv7_libmikktspace.so
+          retention-days: 1
   buildWindows:
     runs-on: windows-latest
     steps:

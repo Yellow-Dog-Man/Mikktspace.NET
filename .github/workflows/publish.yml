@@ -21,6 +21,7 @@ jobs:
         with:
           path: Native/libmikktspace.so
           name: linux_x64_libmikktspace.so
+          retention-days: 1
       - name: Build Native Arm/Android
         run: |
           cd Native/
@@ -29,6 +30,7 @@ jobs:
         with:
           path: Native/libs/armeabi-v7a/libmikktspace.so
           name: android_ARMv7_libmikktspace.so
+          retention-days: 1
   publishWindows:
     needs: [publishLinux]
     env:
@@ -61,8 +63,9 @@ jobs:
       - name: Pack
         run: |
           cd CSharp
-          dotnet pack --output nupkgs --configuration Release -p:Version=0.1.0
+          dotnet pack --output nupkgs --configuration Release -p:Version=0.1.0 -p:NuspecFile=Mikktspace.NET.nuspec
       - uses: actions/upload-artifact@v3
         with:
           path: CSharp/nupkgs/YellowDogman.Mikktspace.NET.0.1.0.nupkg
           name: YellowDogman.Mikktspace.NET.0.1.0.nupkg
+          retention-days: 1
