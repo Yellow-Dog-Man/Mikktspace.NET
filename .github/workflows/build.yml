@@ -26,3 +26,13 @@ jobs:
         with:
           path: Native/libs/armeabi-v7a/libmikktspace.so
           name: android_ARMv7_libmikktspace.so
+  buildWindows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure, build, and test the project
+        run: |
+          cd Native/
+          cmake ./ -G "Visual Studio 16 2019"
+          make
+          ls -ao
