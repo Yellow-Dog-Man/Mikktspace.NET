@@ -34,7 +34,7 @@ jobs:
         run: |
           cd Native/
           cmake ./
-          cmake --build --config Release ./
+          cmake --build ./ --config Release -DCMAKE_CONFIGURATION_TYPES=Release
           dir
       - name: Setup .NET 7
         uses: actions/setup-dotnet@v3
