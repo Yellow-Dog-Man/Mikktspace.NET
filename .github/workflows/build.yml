@@ -1,0 +1,22 @@
+on: push
+jobs:
+  buildLinux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nttld/setup-ndk@v1
+      - uses: lukka/get-cmake@latest
+      - uses: lukka/run-cmake@v10
+        with:
+          cmakeListsTxtPath: '${{ github.workspace }}/Native/CMakeLists.txt'
+      - uses: actions/upload-artifact@v2
+        with:
+          path: Native\libmikktspace.so
+          name: linux_x64_libmikktspace.so
+      - run: |
+          cd Native
+          ${{ env.ANDROID_NDK_PATH }}/ndk-build 
+      - uses: actions/upload-artifact@v2
+        with:
+          path: Native/libs/armeabi-v7a/libmikktspace.so
+          name: android_ARMv7_libmikktspace.so
