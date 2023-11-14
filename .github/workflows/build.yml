@@ -14,9 +14,10 @@ jobs:
           cd Native/
           cmake ./
           make
+          ls -ao
       - uses: actions/upload-artifact@v2
         with:
-          path: Native\libmikktspace.so
+          path: Native/libmikktspace.so
           name: linux_x64_libmikktspace.so
       - run: |
           cd Native/
