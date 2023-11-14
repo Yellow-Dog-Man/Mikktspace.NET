@@ -30,7 +30,7 @@ jobs:
           path: Native/libs/armeabi-v7a/libmikktspace.so
           name: android_ARMv7_libmikktspace.so
   publishWindows:
-    needs: [buildLinux]
+    needs: [publishLinux]
     env:
       VERSION: ${{ github.event.release.tag_name }}
     runs-on: windows-latest
