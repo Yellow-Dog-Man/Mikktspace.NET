@@ -35,4 +35,4 @@ jobs:
           cd Native/
           cmake ./ -G "Visual Studio 16 2019"
           make
-          ls -ao
+          dir
