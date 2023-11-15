@@ -52,7 +52,7 @@ jobs:
         run: |
           cd CSharp
           dotnet restore
-          dotnet build --configuration Release --no-restore
+          dotnet build --configuration Release --no-restore -p:Version=0.1.0
       - name: Download Native Libraries
         uses: actions/download-artifact@v3
         with:
