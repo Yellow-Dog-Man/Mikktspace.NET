@@ -11,6 +11,7 @@
     <copyright>Yellow Dog Man Studios S.r.o. 2023</copyright>
   </metadata>
   <files>
+    <file src=".\bin\Release\netstandard2.0\Mikktspace.NET.dll" target="lib\netstandard2.0\"
     <file src="..\Native\Release\mikktspace.dll" target="runtimes\win-x64\native\mikktspace.dll" />
     <file src="..\runtimes\linux_x64_libmikktspace.so\libmikktspace.so" target="runtimes\linux-x64\native\libmikktspace.so" />
     <file src="..\runtimes\android_ARMv7_libmikktspace.so\libmikktspace.so" target="runtimes\android-arm\native\libmikktspace.so" />

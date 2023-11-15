@@ -11,14 +11,7 @@
     <PackageId>YellowDogman.Mikktspace.NET</PackageId>
     <Id>YellowDogman.Mikktspace.NET</Id>
     <Version>0.1.0</Version>
-  </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
 </Project>
