@@ -1,4 +1,9 @@
-on: push
+name: Release & Publish
+
+# When a release is published
+on:
+  release:
+    types: [published]
 jobs:
   publishLinux:
     runs-on: ubuntu-latest
@@ -52,7 +57,7 @@ jobs:
         run: |
           cd CSharp
           dotnet restore
-          dotnet build --configuration Release --no-restore -p:Version=0.1.0
+          dotnet build --configuration Release --no-restore -p:Version=${{ env.VERSION }}
       - name: Download Native Libraries
         uses: actions/download-artifact@v3
         with:
@@ -60,12 +65,13 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: runtimes/
-      - name: Pack
+      - name: Pack & Push
         run: |
           cd CSharp
-          dotnet pack --output nupkgs --configuration Release -p:Version=0.1.0 -p:NuspecFile=Mikktspace.NET.nuspec
+          dotnet pack --output nupkgs --configuration Release -p:Version=${{ env.VERSION }} -p:NuspecFile=Mikktspace.NET.nuspec
+          dotnet nuget push CSharp\nupkgs\*.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
       - uses: actions/upload-artifact@v3
         with:
-          path: CSharp/nupkgs/YellowDogman.Mikktspace.NET.0.1.0.nupkg
-          name: YellowDogman.Mikktspace.NET.0.1.0.nupkg
+          path: CSharp/nupkgs/YellowDogman.Mikktspace.NET.${{ env.VERSION }}.nupkg
+          name: YellowDogman.Mikktspace.NET.${{ env.VERSION }}.nupkg
           retention-days: 1
