@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$authors$</authors>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/Yellow-Dog-Man/Mikktspace.NET</projectUrl>
-    <description>$description$</description>
-    <copyright>$copyright$</copyright>
   </metadata>
   <files>
     <file src="..\Native\Release\mikktspace.dll" target="runtimes\win-x64\native\mikktspace.dll" />
