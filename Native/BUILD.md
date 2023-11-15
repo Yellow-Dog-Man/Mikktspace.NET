@@ -16,4 +16,4 @@ BUILD FOR LINUX:
 BUILD FOR ANDROID (needs NDK)
 1) ndk-build
 
-Mikktspace.NET wrapper Written by Frooxius for NeosVR (www.neosvr.com)
+Mikktspace.NET wrapper.
