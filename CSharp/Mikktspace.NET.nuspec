@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$authors$</authors>
+    <id>YellowDogMan.Mikktspace.Net</id>
+    <version>0.1.0</version>
+    <authors>Yellow Dog Man Studios S.r.o.</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/Yellow-Dog-Man/Mikktspace.NET</projectUrl>
-    <description>$description$</description>
-    <copyright>$copyright$</copyright>
+    <description>A .NET / C# wrapper for the Mikktspace tangent generation algorithm</description>
+    <copyright>Yellow Dog Man Studios S.r.o. 2023</copyright>
   </metadata>
   <files>
     <file src="..\Native\Release\mikktspace.dll" target="runtimes\win-x64\native\mikktspace.dll" />
