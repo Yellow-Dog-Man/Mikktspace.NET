@@ -68,7 +68,7 @@ jobs:
       - name: Pack & Push
         run: |
           cd CSharp
-          dotnet pack --output nupkgs --configuration Release -p:Version=${{ env.VERSION }} -p:NuspecFile=Mikktspace.NET.nuspec
+          dotnet pack .\Mikktspace.NET.csproj --output nupkgs --configuration Release -p:Version=${{ env.VERSION }}
           dotnet nuget push nupkgs\*.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
       - uses: actions/upload-artifact@v3
         with:

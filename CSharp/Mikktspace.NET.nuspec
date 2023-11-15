@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>YellowDogMan.Mikktspace.Net</id>
-    <version>0.1.0</version>
+    <version>$version$</version>
     <authors>Yellow Dog Man Studios S.r.o.</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
