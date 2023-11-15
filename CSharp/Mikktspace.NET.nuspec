@@ -9,6 +9,9 @@
     <projectUrl>https://github.com/Yellow-Dog-Man/Mikktspace.NET</projectUrl>
     <description>A .NET / C# wrapper for the Mikktspace tangent generation algorithm</description>
     <copyright>Yellow Dog Man Studios S.r.o. 2023</copyright>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src=".\bin\Release\netstandard2.0\Mikktspace.NET.dll" target="lib\netstandard2.0\"/>
